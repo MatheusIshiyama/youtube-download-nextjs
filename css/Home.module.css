@@ -1,0 +1,53 @@
+.card {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    background-color: #273d8d;
+    color: white;
+    text-align: center;
+    padding: 1vh 2vh;
+    border-radius: 10px;
+}
+
+.title {
+    color: white;
+}
+
+.cardContent {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.inputUrl {
+    border-width: 0;
+    height: 25px;
+    max-height: 30px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.inputType {
+    border-width: 0 0 0 1px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.submit {
+    margin-top: 20px;
+}
+
+.submitButton {
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #090a4b;
+    color: white;
+}
+
+.author {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 2vh;
+    color: #b3c6e1;
+}

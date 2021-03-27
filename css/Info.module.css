@@ -1,0 +1,44 @@
+.card {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    background-color: #273d8d;
+    color: white;
+    text-align: center;
+    padding: 2vh;
+    border-radius: 10px;
+}
+
+.cardImage {
+    border-radius: 5px;
+}
+
+.submit {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.submitButton {
+    width: 100px;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #090a4b;
+    color: white;
+}
+
+.exit {
+    width: 100px;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #6e77bd;
+    color: white;
+}
+
+.author {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    font-size: 2vh;
+    color: #b3c6e1;
+}
