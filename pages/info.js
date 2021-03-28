@@ -21,10 +21,11 @@ export default function Info(data) {
             <img src={thumbnail} className={styles.cardImage} />
             <div className={styles.submit}>
                 <a
-                    href={`${process.env.API_URL}/${type}/?url=${url}`}
+                    href=""
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.submitButton}
+                    onClick="location.href=process.env.API_URL+'/'+type+'/?url='+url;return false;"
                 >
                     Download
                 </a>
