@@ -1,5 +1,4 @@
 import api from "../api";
-import Link from "next/link";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "../css/Info.module.css";
@@ -10,6 +9,24 @@ export default function Info(data) {
     const router = useRouter();
 
     const { url, type } = router.query;
+
+    async function handleDownload(event) {
+        event.preventDefault();
+
+        api.get(`${type}/?url=${url}`, { responseType: "blob" })
+            .then(async (response) => {
+                const url = window.URL.createObjectURL(
+                    new Blob([response.data])
+                );
+                const link = document.createElement("a");
+                link.href = url;
+                link.setAttribute("download", `${title}.${type}`);
+                link.click();
+            })
+            .then(() => {
+                router.push("/");
+            });
+    }
 
     function handleExit() {
         router.push("/");
@@ -25,14 +42,13 @@ export default function Info(data) {
             </h4>
             <img src={thumbnail} className={styles.cardImage} />
             <div className={styles.submit}>
-                <Link
-                    href={{
-                        pathname: "/download",
-                        query: { type: type, url: url },
-                    }}
+                <a
+                    href="/"
+                    onClick={handleDownload}
+                    className={styles.submitButton}
                 >
-                    <a className={styles.submitButton}>Download</a>
-                </Link>
+                    Download
+                </a>
                 <a href="/" onClick={handleExit} className={styles.exit}>
                     Voltar
                 </a>
