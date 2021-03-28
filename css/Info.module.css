@@ -9,7 +9,13 @@
 }
 
 .cardImage {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
+    transition: 1s;
+}
+
+.cardImage:hover {
+    box-shadow: 10px 30px 40px rgba(0, 0, 0, 0.5);
 }
 
 .submit {
@@ -19,21 +25,41 @@
 }
 
 .submitButton {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     width: 100px;
     text-decoration: none;
     border-radius: 5px;
     padding: 5px;
     background-color: #090a4b;
     color: white;
+    transition: 0.5s;
+}
+
+.submitButton:hover {
+    box-shadow: 10px 30px 40px rgba(0, 0, 0, 0.5);
+    width: 105px;
+    background-color: #1417a7;
+    align-items: center;
+    padding: 5px;
 }
 
 .exit {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     width: 100px;
     text-decoration: none;
     border-radius: 5px;
     padding: 5px;
     background-color: #6e77bd;
     color: white;
+    transition: 0.5s;
+}
+
+.exit:hover {
+    box-shadow: 10px 30px 40px rgba(0, 0, 0, 0.5);
+    width: 105px;
+    background-color: #838ee2;
+    align-items: center;
+    padding: 5px;
 }
 
 .author {
