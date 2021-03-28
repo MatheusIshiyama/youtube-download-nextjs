@@ -2,31 +2,20 @@ import api from "../api";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import styles from "../css/Info.module.css";
+import { useEffect, useState } from "react";
 
 export default function Info(data) {
-    const { title, thumbnail } = data;
+    const { title, thumbnail, download } = data;
 
     const router = useRouter();
 
-    const { url, type } = router.query;
+    const { type } = router.query;
 
-    async function handleDownload(event) {
-        event.preventDefault();
+    const [downloadUrl, setDownloadUrl] = useState("");
 
-        api.get(`${type}/?url=${url}`, { responseType: "blob" })
-            .then(async (response) => {
-                const url = window.URL.createObjectURL(
-                    new Blob([response.data])
-                );
-                const link = document.createElement("a");
-                link.href = url;
-                link.setAttribute("download", `${title}.${type}`);
-                link.click();
-            })
-            .then(() => {
-                router.push("/");
-            });
-    }
+    useEffect(() => {
+        setDownloadUrl(window.URL.createObjectURL(new Blob([download])));
+    }, []);
 
     function handleExit() {
         router.push("/");
@@ -43,8 +32,8 @@ export default function Info(data) {
             <img src={thumbnail} className={styles.cardImage} />
             <div className={styles.submit}>
                 <a
-                    href="/"
-                    onClick={handleDownload}
+                    href={downloadUrl}
+                    download={`${title}.${type}`}
                     className={styles.submitButton}
                 >
                     Download
@@ -61,13 +50,18 @@ export default function Info(data) {
 }
 
 export async function getServerSideProps(context) {
-    const { url } = context.query;
+    const { url, type } = context.query;
 
     const response = await api.get(`/info/?url=${url}`);
+
+    const downloadResponse = await api.get(`${type}/?url=${url}`, {
+        responseType: "blob",
+    });
 
     const data = {
         title: response.data.title,
         thumbnail: response.data.thumbnail,
+        download: downloadResponse.data,
     };
 
     return { props: data };
