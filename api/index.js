@@ -1,5 +1,5 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default axios.create({
-    baseURL: 'https://youtube-download-api.matheusishiyama.repl.co'
-})
+    baseURL: process.env.API_URL,
+});
