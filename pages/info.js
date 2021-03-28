@@ -9,7 +9,7 @@ export default function Info(data) {
 
     const router = useRouter();
 
-    const { type } = router.query;
+    const { url, type } = router.query;
 
     function handleExit() {
         router.push("/");
