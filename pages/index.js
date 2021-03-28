@@ -38,7 +38,7 @@ export default function Home() {
             <div className={styles.submit}>
                 <Link
                     href={{
-                        pathname: "/info",
+                        pathname: "/api/validate",
                         query: { type: type, url: url },
                     }}
                 >
