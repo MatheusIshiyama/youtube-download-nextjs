@@ -22,7 +22,7 @@ export default function Info(data) {
             <div className={styles.submit}>
                 <a
                     href={`${process.env.API_URL}/${type}/?url=${url}`}
-                    target="Blank"
+                    target="_blank"
                     className={styles.submitButton}
                 >
                     Download
