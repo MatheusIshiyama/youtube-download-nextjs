@@ -9,24 +9,6 @@ export default function Info(data) {
 
     const { url, type } = router.query;
 
-    async function handleDownload(event) {
-        event.preventDefault();
-
-        api.get(`${type}/?url=${url}`, { responseType: "blob" })
-            .then(async (response) => {
-                const url = window.URL.createObjectURL(
-                    new Blob([response.data])
-                );
-                const link = document.createElement("a");
-                link.href = url;
-                link.setAttribute("download", `${title}.${type}`);
-                link.click();
-            })
-            .then(() => {
-                router.push("/");
-            });
-    }
-
     function handleExit() {
         router.push("/");
     }
@@ -39,8 +21,8 @@ export default function Info(data) {
             <img src={thumbnail} className={styles.cardImage} />
             <div className={styles.submit}>
                 <a
-                    href="/"
-                    onClick={handleDownload}
+                    href={`${process.env.API_URL}/${type}/?url=${url}`}
+                    target="Blank"
                     className={styles.submitButton}
                 >
                     Download
