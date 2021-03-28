@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
@@ -9,7 +10,11 @@ export default function redirect(data) {
         router.push("/");
     }, []);
 
-    return <div>Download</div>;
+    return (
+        <Head>
+            <title>Youtube Downloader</title>
+        </Head>
+    );
 }
 
 export async function getServerSideProps(context) {

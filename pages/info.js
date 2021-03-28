@@ -1,6 +1,7 @@
 import api from "../api";
-import { useRouter } from "next/router";
 import Link from "next/link";
+import Head from "next/head";
+import { useRouter } from "next/router";
 import styles from "../css/Info.module.css";
 
 export default function Info(data) {
@@ -16,6 +17,9 @@ export default function Info(data) {
 
     return (
         <div className={styles.card}>
+            <Head>
+                <title>Youtube Downloader</title>
+            </Head>
             <h4>
                 {title}.{type}
             </h4>

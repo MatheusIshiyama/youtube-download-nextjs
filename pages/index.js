@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Head from "next/head";
 import { useState } from "react";
 import styles from "../css/Home.module.css";
 
@@ -16,6 +17,9 @@ export default function Home() {
 
     return (
         <div className={styles.card}>
+            <Head>
+                <title>Youtube Downloader</title>
+            </Head>
             <h2 className={styles.title}>Youtube downloader</h2>
             <div className={styles.cardContent}>
                 <input
