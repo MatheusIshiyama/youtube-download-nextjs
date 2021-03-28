@@ -9,7 +9,6 @@ export default function Info(data) {
     const router = useRouter();
 
     const { url, type } = router.query;
-    const downloadUrl = `${process.env.API_URL}/${type}/?url=${url}`;
 
     function handleExit() {
         router.push("/");
@@ -22,10 +21,13 @@ export default function Info(data) {
             </h4>
             <img src={thumbnail} className={styles.cardImage} />
             <div className={styles.submit}>
-                <Link href={downloadUrl} passHref>
-                    <a target="_blank" className={styles.submitButton}>
-                        Download
-                    </a>
+                <Link
+                    href={{
+                        pathname: "/download",
+                        query: { type: type, url: url },
+                    }}
+                >
+                    <a className={styles.submitButton}>Download</a>
                 </Link>
                 <a href="/" onClick={handleExit} className={styles.exit}>
                     Voltar
