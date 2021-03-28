@@ -38,11 +38,18 @@
 }
 
 .submitButton {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     border-radius: 5px;
     padding: 10px;
     background-color: #090a4b;
     color: white;
+    transition: 0.5s;
+}
+
+.submitButton:hover {
+    box-shadow: 10px 30px 40px rgba(0, 0, 0, 0.5);
+    background-color: #1417a7;
 }
 
 .author {
