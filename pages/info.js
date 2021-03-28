@@ -23,6 +23,7 @@ export default function Info(data) {
                 <a
                     href={`${process.env.API_URL}/${type}/?url=${url}`}
                     target="_blank"
+                    rel="noopener noreferrer"
                     className={styles.submitButton}
                 >
                     Download
