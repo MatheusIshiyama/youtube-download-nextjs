@@ -1,5 +1,6 @@
 import api from "../api";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import styles from "../css/Info.module.css";
 
 export default function Info(data) {
@@ -8,10 +9,6 @@ export default function Info(data) {
     const router = useRouter();
 
     const { url, type } = router.query;
-
-    function handleLink() {
-        location.href = `${process.env.API_URL}/${type}/?url=${url}`;
-    }
 
     function handleExit() {
         router.push("/");
@@ -24,14 +21,14 @@ export default function Info(data) {
             </h4>
             <img src={thumbnail} className={styles.cardImage} />
             <div className={styles.submit}>
-                <a
-                    href={handleLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.submitButton}
+                <Link
+                    href={`${process.env.API_URL}/${type}/?url=${url}`}
+                    passHref={true}
                 >
-                    Download
-                </a>
+                    <a className={styles.submitButton} target="_blank">
+                        Download
+                    </a>
+                </Link>
                 <a href="/" onClick={handleExit} className={styles.exit}>
                     Voltar
                 </a>
